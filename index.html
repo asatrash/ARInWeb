@@ -94,10 +94,62 @@
 
 <!--     <a-scene markers_start vr-mode-ui="enabled: false" color-space="sRGB" renderer="gammaOutput: true"
             embedded arjs='debugUIEnabled: false; sourceType: webcam; patternRatio: 0.85; trackingMethod: best;'> -->
-          <a-scene markers_start altspace="" scale="0.1 0.1 0.1" class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" vr-mode-ui="">  
+<!--           <a-scene markers_start altspace="" scale="0.1 0.1 0.1" class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" vr-mode-ui="">  
                 <!-- <a-entity id='userCamera' camera> -->
               <!-- <a-cursor> </a-cursor> -->
-                <!-- </a-entity> -->
-            </a-scene> 
+                <!-- </a-entity> 
+            </a-scene>  -->
+
+
+    <a-scene altspace="" scale="0.1 0.1 0.1" class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" vr-mode-ui="">
+      <a-assets>
+        <a-mixin id="box" geometry="depth: 0.1; height: 0.1; width: 0.1"></a-mixin>
+        <a-mixin id="frame-edge" geometry="primitive: box; depth: 10; height: 0.1; width: 0.1" material="color: #404040"></a-mixin>
+        <img id="shadow" src="../../assets/img/radial-shadow-2.png">
+        <img id="texture" src="http://i.imgur.com/6qHKYGf.png" crossorigin="">
+      </a-assets>
+
+      <a-entity position="0 0 -11" rotation="0 45 0" scale="" visible="">
+        <a-box src="#texture" position="-5 0 -2" width="1" color="#F16745" material="" geometry="" rotation="" scale="" visible=""></a-box>
+        <a-box height="2" color="#FFC65D" material="" geometry="" position="" rotation="" scale="" visible=""></a-box>
+        <a-box position="5 0 2" depth="5" color="#7BC8A4" material="" geometry="" rotation="" scale="" visible=""></a-box>
+        <a-box position="5 5 -5" width="1" height="2" depth="22" color="#4CC3D9" material="" geometry="" rotation="" scale="" visible=""></a-box>
+        <a-box position="1 2 1" width="1" height="1" depth="1" color="#93648D" material="" geometry="" rotation="" scale="" visible=""></a-box>
+        <a-box position="-3 0 0" width="0.5" height="10" depth="0.5" color="#404040" material="" geometry="" rotation="" scale="" visible=""></a-box>
+
+        <a-entity position="-2 5 4" scale="0.15 0.15 0.15" rotation="" visible="">
+          <a-entity mixin="frame-edge" position="5 5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="5 -5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="-5 5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="-5 -5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="0 5 5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="0 5 -5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="0 -5 5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="0 -5 -5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="5 0 5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="5 0 -5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="-5 0 5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
+          <a-entity mixin="frame-edge" position="-5 0 -5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
+        </a-entity>
+
+        <a-entity id="bits" position="-6 -1 0" rotation="" scale="" visible="">
+          <a-box mixin="box" position="0 -0.2 0" color="#4CC3D9" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="0.5 -0.2 0.5" color="#93648D" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="0 0 2" color="#7BC8A4" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="-0.5 -0,5 3" color="#FFC65D" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="0 0 4" color="#F16745" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="-0.2 -0.4 5" color="#FFC65D" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="0 0 6" color="#4CC3D9" material="" geometry="" rotation="" scale="" visible=""></a-box>
+          <a-box mixin="box" position="0.2 0 7" color="#93648D" material="" geometry="" rotation="" scale="" visible=""></a-box>
+        </a-entity>
+      </a-entity>
+
+      <!-- Cube shadow -->
+      <a-image id="shadow" position="0 -14 0" src="#shadow" opacity="1" rotation="-90 0 0" scale="14 14 14" material="" geometry="" visible=""></a-image>
+      <a-sky color="#ECECEC" material="" geometry="" scale="" position="" rotation="" visible=""></a-sky>
+    <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="611" height="952" style="width: 489px; height: 762px;"></canvas><div class="a-enter-vr" aframe-injected=""><button class="a-enter-vr-button" aframe-injected=""></button></div><div class="a-orientation-modal a-hidden" aframe-injected=""><button aframe-injected="">Exit VR</button></div><a-entity position="" data-aframe-default-camera="" camera="" wasd-controls="" rotation="" look-controls="" aframe-injected="" scale="" visible=""></a-entity><a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity><a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity></a-scene>
+  
+
+            
 </body>
 </html>
