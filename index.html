@@ -45,6 +45,18 @@
             markerEl.setAttribute('registerevents','');
             sceneEl.appendChild(markerEl);
 
+            //Adding a plane to each marker
+            var panelE = document.createElement('a-plane');
+
+            panelE.setAttribute('height','6');
+            panelE.setAttribute('width','10');
+            panelE.setAttribute('material','#color: blue; opacity: 0.1; transparent: true');
+            panelE.object3D.position.set(-5, -3, 0);
+
+            markerEl.appendChild(panelE);
+
+            //<a-plane position="-7 4 -10" rotation="30 20 45" width="10" height="1.5" color="#F16745" geometry="" material="color: blue; opacity: 0.1; transparent: true"></a-plane>
+
             //Adding text to each marker
             var textEl = document.createElement('a-entity');
             
