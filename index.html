@@ -29,48 +29,39 @@
             var scene = document.querySelector('a-scene');
           // var sceneEl = document.querySelector('a-scene');
           
-          // //list of the markers
-          // for(var i=1; i<6; i++)
-          // {
-          //   var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
-          //   markersURLArray.push(url);
-          //   markersNameArray.push('Marker_'+i);
-          //   //console.log(url);
-          // }
+          //list of the markers
+          for(var i=1; i<6; i++)
+          {
+            var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
+            markersURLArray.push(url);
+            markersNameArray.push('Marker_'+i);
+            //console.log(url);
+          }
 
-          // for(var k=0; k<5; k++)
-          // {
-          //   var markerEl = document.createElement('a-marker');
-          //   markerEl.setAttribute('type','pattern');
-          //   markerEl.setAttribute('url',markersURLArray[k]);
-          //   markerEl.setAttribute('id',markersNameArray[k]);
+          for(var k=0; k<5; k++)
+          {
+            var markerEl = document.createElement('a-marker');
+            markerEl.setAttribute('type','pattern');
+            markerEl.setAttribute('url',markersURLArray[k]);
+            markerEl.setAttribute('id',markersNameArray[k]);
 
-          //   markerEl.setAttribute('registerevents','');
-          //   sceneEl.appendChild(markerEl);
+            markerEl.setAttribute('registerevents','');
+            sceneEl.appendChild(markerEl);
 
 
 
-          //   //<a-plane position="-7 4 -10" rotation="30 20 45" width="10" height="1.5" color="#F16745" geometry="" material="color: blue; opacity: 0.1; transparent: true"></a-plane>
-
-          //   //Adding text to each marker
-          //   var textEl = document.createElement('a-entity');
+            //Adding text to each marker
+            var textEl = document.createElement('a-entity');
             
-          //   textEl.setAttribute('id','text');
-          //   textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
-          //   textEl.object3D.position.set(0, 0.7, 0);
-          //   textEl.object3D.rotation.set(90, 0, 0);
+            textEl.setAttribute('id','text');
+            textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
+            textEl.object3D.position.set(0, 0.7, 0);
+            textEl.object3D.rotation.set(90, 0, 0);
 
-          //   markerEl.appendChild(textEl);
-          // }
+            markerEl.appendChild(textEl);
+          }
 
-          //Adding a plane to each marker
-          // var scene = document.querySelector('');
-          var cylinder = document.createElement('a-cylinder');
-          cylinder.setAttribute('color', '#000');
-          cylinder.setAttribute('height', '1');
-          cylinder.setAttribute('radius', '0.75');
-          cylinder.setAttribute('position', '0 0 -6');
-          scene.appendChild(cylinder);
+
 
 
             var planeEl = document.createElement('a-plane');
