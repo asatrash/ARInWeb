@@ -2,7 +2,7 @@
 <html>
 <head>
 	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+	<!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script> -->
 </head>
 <body>
 <!--   <a-scene stats embedded arjs='trackingMethod: best; debugUIEnabled: false'>
@@ -24,50 +24,81 @@
         init:function(){
           console.log('Add markers to the scene');
 
-          var sceneEl = document.querySelector('a-scene');
+
+
+            var scene = document.querySelector('a-scene');
+          // var sceneEl = document.querySelector('a-scene');
           
-          //list of the markers
-          for(var i=1; i<6; i++)
-          {
-            var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
-            markersURLArray.push(url);
-            markersNameArray.push('Marker_'+i);
-            //console.log(url);
-          }
+          // //list of the markers
+          // for(var i=1; i<6; i++)
+          // {
+          //   var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
+          //   markersURLArray.push(url);
+          //   markersNameArray.push('Marker_'+i);
+          //   //console.log(url);
+          // }
 
-          for(var k=0; k<5; k++)
-          {
-            var markerEl = document.createElement('a-marker');
-            markerEl.setAttribute('type','pattern');
-            markerEl.setAttribute('url',markersURLArray[k]);
-            markerEl.setAttribute('id',markersNameArray[k]);
+          // for(var k=0; k<5; k++)
+          // {
+          //   var markerEl = document.createElement('a-marker');
+          //   markerEl.setAttribute('type','pattern');
+          //   markerEl.setAttribute('url',markersURLArray[k]);
+          //   markerEl.setAttribute('id',markersNameArray[k]);
 
-            markerEl.setAttribute('registerevents','');
-            sceneEl.appendChild(markerEl);
+          //   markerEl.setAttribute('registerevents','');
+          //   sceneEl.appendChild(markerEl);
 
-            //Adding a plane to each marker
-            var panelE = document.createElement('a-plane');
 
-            panelE.setAttribute('height','6');
-            panelE.setAttribute('width','10');
-            panelE.setAttribute('material','#color: blue; opacity: 0.1; transparent: true');
-            panelE.object3D.position.set(-5, -3, 0);
 
-            markerEl.appendChild(panelE);
+          //   //<a-plane position="-7 4 -10" rotation="30 20 45" width="10" height="1.5" color="#F16745" geometry="" material="color: blue; opacity: 0.1; transparent: true"></a-plane>
 
-            //<a-plane position="-7 4 -10" rotation="30 20 45" width="10" height="1.5" color="#F16745" geometry="" material="color: blue; opacity: 0.1; transparent: true"></a-plane>
-
-            //Adding text to each marker
-            var textEl = document.createElement('a-entity');
+          //   //Adding text to each marker
+          //   var textEl = document.createElement('a-entity');
             
-            textEl.setAttribute('id','text');
-            textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
-            textEl.object3D.position.set(0, 0.7, 0);
-            textEl.object3D.rotation.set(90, 0, 0);
+          //   textEl.setAttribute('id','text');
+          //   textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
+          //   textEl.object3D.position.set(0, 0.7, 0);
+          //   textEl.object3D.rotation.set(90, 0, 0);
 
-            markerEl.appendChild(textEl);
-          }
+          //   markerEl.appendChild(textEl);
+          // }
+
+          //Adding a plane to each marker
+          // var scene = document.querySelector('');
+          var cylinder = document.createElement('a-cylinder');
+          cylinder.setAttribute('color', '#000');
+          cylinder.setAttribute('height', '1');
+          cylinder.setAttribute('radius', '0.75');
+          cylinder.setAttribute('position', '0 0 -6');
+          scene.appendChild(cylinder);
+
+
+            var planeEl = document.createElement('a-plane');
+            planeEl.setAttribute('color','#000');
+            planeEl.setAttribute('height', '3');
+            planeEl.setAttribute("width", "3");
+            planeEl.setAttribute('position', '0 0 -5')
+            planeEl.setAttribute('material',{opacity: '0.3'});
+            planeEl.setAttribute('trnsparent',"true");
+            planeEl.setAttribute('rotate', '0 45 0');
+            scene.appendChild(planeEl);
+
+            
+            var textEl = document.createElement('a-text');
+            textEl.setAttribute('id','text');
+            textEl.setAttribute('text',{color: '#886600', align: 'left', value:'This is a very log text line which might or might not wrap', width: '2.5', });
+            textEl.setAttribute('position', '-1.25 1.25 0')
+            //textEl.setAttribute('geometry', "primitive:plane, color:red");
+            // textEl.object3D.position.set(0, -5.4, 0);
+            // textEl.object3D.rotation.set(90, 0, 0);
+            planeEl.appendChild(textEl);
+
+
+
+                     
+       
         }
+        
       });
 
 
@@ -101,55 +132,14 @@
             </a-scene>  -->
 
 
-    <a-scene altspace="" scale="0.1 0.1 0.1" class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" vr-mode-ui="">
-      <a-assets>
-        <a-mixin id="box" geometry="depth: 0.1; height: 0.1; width: 0.1"></a-mixin>
-        <a-mixin id="frame-edge" geometry="primitive: box; depth: 10; height: 0.1; width: 0.1" material="color: #404040"></a-mixin>
-        <img id="shadow" src="../../assets/img/radial-shadow-2.png">
-        <img id="texture" src="http://i.imgur.com/6qHKYGf.png" crossorigin="">
-      </a-assets>
+    <a-scene markers_start >
+      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky> -->
+    </a-scene>
 
-      <a-entity position="0 0 -11" rotation="0 45 0" scale="" visible="">
-        <a-box src="#texture" position="-5 0 -2" width="1" color="#F16745" material="" geometry="" rotation="" scale="" visible=""></a-box>
-        <a-box height="2" color="#FFC65D" material="" geometry="" position="" rotation="" scale="" visible=""></a-box>
-        <a-box position="5 0 2" depth="5" color="#7BC8A4" material="" geometry="" rotation="" scale="" visible=""></a-box>
-        <a-box position="5 5 -5" width="1" height="2" depth="22" color="#4CC3D9" material="" geometry="" rotation="" scale="" visible=""></a-box>
-        <a-box position="1 2 1" width="1" height="1" depth="1" color="#93648D" material="" geometry="" rotation="" scale="" visible=""></a-box>
-        <a-box position="-3 0 0" width="0.5" height="10" depth="0.5" color="#404040" material="" geometry="" rotation="" scale="" visible=""></a-box>
 
-        <a-entity position="-2 5 4" scale="0.15 0.15 0.15" rotation="" visible="">
-          <a-entity mixin="frame-edge" position="5 5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="5 -5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="-5 5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="-5 -5 0" rotation="" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="0 5 5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="0 5 -5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="0 -5 5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="0 -5 -5" rotation="0 90 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="5 0 5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="5 0 -5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="-5 0 5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
-          <a-entity mixin="frame-edge" position="-5 0 -5" rotation="90 0 0" scale="" visible="" geometry="" material=""></a-entity>
-        </a-entity>
-
-        <a-entity id="bits" position="-6 -1 0" rotation="" scale="" visible="">
-          <a-box mixin="box" position="0 -0.2 0" color="#4CC3D9" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="0.5 -0.2 0.5" color="#93648D" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="0 0 2" color="#7BC8A4" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="-0.5 -0,5 3" color="#FFC65D" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="0 0 4" color="#F16745" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="-0.2 -0.4 5" color="#FFC65D" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="0 0 6" color="#4CC3D9" material="" geometry="" rotation="" scale="" visible=""></a-box>
-          <a-box mixin="box" position="0.2 0 7" color="#93648D" material="" geometry="" rotation="" scale="" visible=""></a-box>
-        </a-entity>
-      </a-entity>
-
-      <!-- Cube shadow -->
-      <a-image id="shadow" position="0 -14 0" src="#shadow" opacity="1" rotation="-90 0 0" scale="14 14 14" material="" geometry="" visible=""></a-image>
-      <a-sky color="#ECECEC" material="" geometry="" scale="" position="" rotation="" visible=""></a-sky>
-    <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="611" height="952" style="width: 489px; height: 762px;"></canvas><div class="a-enter-vr" aframe-injected=""><button class="a-enter-vr-button" aframe-injected=""></button></div><div class="a-orientation-modal a-hidden" aframe-injected=""><button aframe-injected="">Exit VR</button></div><a-entity position="" data-aframe-default-camera="" camera="" wasd-controls="" rotation="" look-controls="" aframe-injected="" scale="" visible=""></a-entity><a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity><a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity></a-scene>
-  
-
-            
 </body>
 </html>
