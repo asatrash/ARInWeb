@@ -26,8 +26,7 @@
 
 
 
-            var scene = document.querySelector('a-scene');
-          // var sceneEl = document.querySelector('a-scene');
+          var sceneEl = document.querySelector('a-scene');
           
           //list of the markers
           for(var i=1; i<6; i++)
@@ -72,7 +71,7 @@
             planeEl.setAttribute('material',{opacity: '0.3'});
             planeEl.setAttribute('trnsparent',"true");
             planeEl.setAttribute('rotate', '0 45 0');
-            scene.appendChild(planeEl);
+            sceneEl.appendChild(planeEl);
 
             
             var textEl = document.createElement('a-text');
