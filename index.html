@@ -72,8 +72,7 @@
 
             var textEl = document.createElement('a-text');
             textEl.setAttribute('id','text');
-            textEl.setAttribute('text',{color: '#000', align: 'left', value:'This is a very log text /b \n line which might or might not wrap', width: '2', });
-            textEl.setAttribute('font', 'aileronsemibold');
+            textEl.setAttribute('text',{color: '#000', baseline: 'top' , align: 'left', value:'This is a very log text /b \n line which might or might not wrap', width: '2', });
             textEl.setAttribute('position', '-1.25 1.25 0')
             textEl.setAttribute('scale', '1.5 1.5 0')
             planeEl.appendChild(textEl);
