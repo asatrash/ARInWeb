@@ -49,20 +49,6 @@
 
 
 
-            //Adding text to each marker
-            var textEl = document.createElement('a-entity');
-            
-            textEl.setAttribute('id','text');
-            textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
-            textEl.object3D.position.set(0, 0.7, 0);
-            textEl.object3D.rotation.set(90, 0, 0);
-
-            markerEl.appendChild(textEl);
-          }
-
-
-
-
             var planeEl = document.createElement('a-plane');
             planeEl.setAttribute('color','#680');
             planeEl.setAttribute('height', '3');
@@ -71,17 +57,48 @@
             planeEl.setAttribute('material',{opacity: '0.3'});
             planeEl.setAttribute('trnsparent',"true");
             planeEl.setAttribute('rotate', '0 45 0');
-            sceneEl.appendChild(planeEl);
+            markerEl.appendChild(planeEl);
 
+
+            //Adding text to each marker
+            // var textEl = document.createElement('a-entity');
             
+            // textEl.setAttribute('id','text');
+            // textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
+            // textEl.object3D.position.set(0, 0.7, 0);
+            // textEl.object3D.rotation.set(90, 0, 0);
+
+            // markerEl.appendChild(textEl);
+
             var textEl = document.createElement('a-text');
             textEl.setAttribute('id','text');
             textEl.setAttribute('text',{color: '#886600', align: 'left', value:'This is a very log text /b \n line which might or might not wrap', width: '2.5', });
             textEl.setAttribute('position', '-1.25 1.25 0')
-            //textEl.setAttribute('geometry', "primitive:plane, color:red");
-            // textEl.object3D.position.set(0, -5.4, 0);
-            // textEl.object3D.rotation.set(90, 0, 0);
             planeEl.appendChild(textEl);
+          }
+
+
+
+
+            // var planeEl = document.createElement('a-plane');
+            // planeEl.setAttribute('color','#680');
+            // planeEl.setAttribute('height', '3');
+            // planeEl.setAttribute("width", "3");
+            // planeEl.setAttribute('position', '0 0 -5')
+            // planeEl.setAttribute('material',{opacity: '0.3'});
+            // planeEl.setAttribute('trnsparent',"true");
+            // planeEl.setAttribute('rotate', '0 45 0');
+            // sceneEl.appendChild(planeEl);
+
+            
+            // var textEl = document.createElement('a-text');
+            // textEl.setAttribute('id','text');
+            // textEl.setAttribute('text',{color: '#886600', align: 'left', value:'This is a very log text /b \n line which might or might not wrap', width: '2.5', });
+            // textEl.setAttribute('position', '-1.25 1.25 0')
+            //  //textEl.setAttribute('geometry', "primitive:plane, color:red");
+            // //textEl.object3D.position.set(0, -5.4, 0);
+            // //textEl.object3D.rotation.set(90, 0, 0);
+            // planeEl.appendChild(textEl);
 
 
 
