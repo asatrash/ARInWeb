@@ -49,17 +49,26 @@
 
 
 
-            var planeEl = document.createElement('a-plane');
-            planeEl.setAttribute('color','#680');
-            planeEl.setAttribute('height', '5');
-            planeEl.setAttribute("width", "3");
-            planeEl.setAttribute('position', '0 0 -5')
-            planeEl.setAttribute('material',{opacity: '0.7'});
-            //planeEl.setAttribute('trnsparent',"true");
-            planeEl.setAttribute('rotate', '0 45 0');
-            markerEl.appendChild(planeEl);
+            // var planeEl = document.createElement('a-plane');
+            // planeEl.setAttribute('color','#680');
+            // planeEl.setAttribute('height', '5');
+            // planeEl.setAttribute("width", "3");
+            // planeEl.setAttribute('position', '0 0 -5')
+            // planeEl.setAttribute('material',{opacity: '0.7'});
+            // //planeEl.setAttribute('trnsparent',"true");
+            // planeEl.setAttribute('rotate', '0 45 0');
+            // markerEl.appendChild(planeEl);
 
 
+            var boxEl = document.createElement('a-box');
+            boxEl.setAttribute('id','box');
+            boxEl.setAttribute('depth','0.001');
+            boxEl.setAttribute('width','3');
+            boxEl.setAttribute('height','5');
+            boxEl.setAttribute('position','0 0 -5');
+            markerEl.appendChild(boxEl);
+
+            
             //Adding text to each marker
             // var textEl = document.createElement('a-entity');
             
@@ -75,7 +84,7 @@
             textEl.setAttribute('text',{color: '#521B00',  align: 'left', value:'This is a very log text /b \n line which might or might not wrap', width: '2' });
             textEl.setAttribute('position', '-1.25 1.25 0')
             textEl.setAttribute('scale', '1.5 1.5 0')
-            planeEl.appendChild(textEl);
+            boxEl.appendChild(textEl);
           }
 
 
@@ -136,9 +145,9 @@
 
 
               <a-entity id='userCamera' camera look-controls > 
-                               <a-box opacity="0.1" color="blue" width="1" height="1" depth="0.001"
+            <!-- <a-box opacity="0.1" color="blue" width="1" height="1" depth="0.001"
              position="0 1.5 -4.5"
-             text="align: center; color: black; value: (Centered) default\n(roboto) font\nwith line break">
+             text="align: center; color: black; value: (Centered) default\n(roboto) font\nwith line break"> -->
                 <a-cursor> </a-cursor> 
               </a-entity> 
             </a-scene>  
