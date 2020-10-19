@@ -133,6 +133,10 @@
 
      <a-scene markers_start vr-mode-ui="enabled: false" color-space="sRGB" renderer="gammaOutput: true"
             embedded arjs='debugUIEnabled: false; sourceType: webcam; patternRatio: 0.85; trackingMethod: best;'>  
+               <a-box opacity="0.1" color="blue" width="1" height="1" depth="0.001"
+             position="0 1.5 -1.5"
+             text="align: center; color: black; value: (Centered) default\n(roboto) font\nwith line break">
+
               <a-entity id='userCamera' camera> 
                 <a-cursor> </a-cursor> 
               </a-entity> 
